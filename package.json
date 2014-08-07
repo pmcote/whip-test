@@ -1,0 +1,15 @@
+{
+  "name": "Whip-Serve",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "body-parser": "~1.0.1",
+    "express": "~4.0.0",
+    "jade": "*",
+    "underscore": "^1.6.0",
+    "whiplash": "*"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
