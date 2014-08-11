@@ -13,8 +13,6 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 
 router.post('/', post_it.post_it); //endpoint for Celery webhook
-
-
 //hit at 
 
 app.use('/', router);
