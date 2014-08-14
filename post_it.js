@@ -3,8 +3,10 @@ exports.post_it = function(req, res) {
 var Whiplash = new require('whiplash');
 var whiplash = new Whiplash();
 
+
 var cjson = req.body;
-console.log('req.body', req.body);
+console.log('req.body', cjson);
+console.log('shipping', cjson.buyer.shipping)
 
 // Sample of the 'Create Order' array format according to Celery's API
 // var cjson = {"order": {
@@ -32,7 +34,7 @@ console.log('req.body', req.body);
 // Sample of the 'Create Order' arry format according to the Whiplash API
 var wjson = {
 	"method":"POST",
-	"url":"orders",
+	"url":"orders/",
 	"billed":false,
 	"created_at":"2013-06-06T15:55:30-04:00",
 	"days_in_transit":1,
@@ -102,6 +104,7 @@ console.log('boop1');
 
 wjson.shipping_name = buyer.name;
 wjson.email = buyer.email;
+console.log('buyer.street', buyer.street);
 wjson.shipping_address_1 = buyer.street;
 wjson.shipping_city = buyer.city;
 wjson.shipping_state = buyer.state;
@@ -109,12 +112,15 @@ wjson.shipping_zip = buyer.zip;
 wjson.shipping_country = buyer.country;
 console.log('boop2');
 
+console.log('wjson', wjson);
+
 //need information on IDs
 whiplash.request(wjson, 
 	function (err, body) {
 	if (err) console.log(err);
 	console.log('Response body:', body);
-	res.render('post_it', {body:body});
+	res.render('post_it');
 	console.log('boop3');
 });
 };
+

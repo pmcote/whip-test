@@ -5,7 +5,7 @@ var post_it = require('./post_it.js')
 
 app.use(bodyParser());
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8000;
 
 var router = express.Router();
 
