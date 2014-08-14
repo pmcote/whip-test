@@ -6,7 +6,7 @@ var whiplash = new Whiplash();
 
 var cjson = req.body;
 console.log('req.body', cjson);
-console.log('shipping', cjson.buyer.shipping)
+console.log('shipping', cjson.order.buyer.shipping);
 
 // Sample of the 'Create Order' array format according to Celery's API
 // var cjson = {"order": {
@@ -104,12 +104,11 @@ console.log('boop1');
 
 wjson.shipping_name = buyer.name;
 wjson.email = buyer.email;
-console.log('buyer.street', buyer.street);
-wjson.shipping_address_1 = buyer.street;
-wjson.shipping_city = buyer.city;
-wjson.shipping_state = buyer.state;
-wjson.shipping_zip = buyer.zip;
-wjson.shipping_country = buyer.country;
+wjson.shipping_address_1 = buyer.shipping.street;
+wjson.shipping_city = buyer.shipping.city;
+wjson.shipping_state = buyer.shipping.state;
+wjson.shipping_zip = buyer.shipping.zip;
+wjson.shipping_country = buyer.shipping.country;
 console.log('boop2');
 
 console.log('wjson', wjson);
